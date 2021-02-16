@@ -28,7 +28,7 @@ const crearUsuario = async(req, res = express.response)=>{
         usuario.password = bcrypt.hashSync(password, salt);
 
         await usuario.save();
-        //Generar nuestro Jason web token JWT
+        //Generar nuestro JSON web token JWT
         const token = await generarJWT(usuario.id, usuario.name);
 
         //Se creó correctamente
